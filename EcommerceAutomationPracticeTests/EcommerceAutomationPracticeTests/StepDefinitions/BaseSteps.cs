@@ -7,7 +7,7 @@ using TechTalk.SpecFlow;
 using NUnit.Framework;
 using OpenQA.Selenium.PhantomJS;
 
-namespace Way2AutomateTests.StepDefinitions
+namespace EcommerceAutomationPracticeTests.StepDefinitions
 {
     [TestFixture]
     class BaseSteps : Steps

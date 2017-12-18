@@ -1,10 +1,10 @@
 ﻿using System;
 using NUnit.Framework;
 
-namespace Way2AutomateTests
+namespace EcommerceAutomationPracticeTests
 {
     [TestFixture]
-    public class AutomatedSeleniumBaseContext
+    public class EcommerceAutomationPracticeTestsContext
     {
         public static TestContext Context { get; private set; }
 

@@ -2,7 +2,7 @@
 <RunSettings>  
   <!-- Parameters used by tests at runtime -->  
   <TestRunParameters>
-    <Parameter name="ApplicationBaseUrl" value="http://www.way2automation.com/"/>
+    <Parameter name="ApplicationBaseUrl" value="http://automationpractice.com/index.php"/>
     <Parameter name ="BrowserName" value="Chrome"/>
     <Parameter name="VendorDirectory" value="\Vendor"/>
   </TestRunParameters>  
