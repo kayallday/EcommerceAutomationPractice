@@ -1,5 +1,7 @@
 ﻿using System;
+using NUnit;
 using OpenQA.Selenium;
+using NUnit.Framework;
 
 namespace EcommerceAutomationPracticeTests.PageObjects
 {
@@ -18,7 +20,17 @@ namespace EcommerceAutomationPracticeTests.PageObjects
 
         internal void ClickLoginButton()
         {
-            throw new NotImplementedException();
+            By SignInButton = By.Id("SubmitLogin");
+            WaitUntilClickable(SignInButton, WAIT_SECONDS);
+            Click(SignInButton);
+        }
+
+        internal void FindWelcomeMessage()
+        {
+            By WelcomeMessage = By.ClassName("info-account");
+            WaitUntilDisplayed(WelcomeMessage, WAIT_SECONDS);
+            Find(WelcomeMessage);
+            //Assert.AreEqual("info-account", WelcomeMessage);
         }
     }
 }

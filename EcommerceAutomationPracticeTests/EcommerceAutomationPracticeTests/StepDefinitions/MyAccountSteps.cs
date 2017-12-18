@@ -48,7 +48,8 @@ namespace EcommerceAutomationPracticeTests.StepDefinitions
         [Then(@"Can view the My Account page")]
         public void ThenCanViewTheMyAccountPage()
         {
-            ScenarioContext.Current.Pending();
+            LoginPage loginPage = new LoginPage(Driver);
+            loginPage.FindWelcomeMessage();
         }
 
     }
