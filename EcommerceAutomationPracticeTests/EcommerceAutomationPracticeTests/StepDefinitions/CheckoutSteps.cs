@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EcommerceAutomationPracticeTests.PageObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,30 +8,40 @@ using TechTalk.SpecFlow;
 
 namespace EcommerceAutomationPracticeTests.StepDefinitions
 {
-    class CheckoutSteps
+    [Binding]
+    class CheckoutSteps : BaseSteps
     {
-        [Given(@"I am logged in")]
-        public void GivenIAmLoggedIn()
+        [BeforeScenario("Checkout")]
+        public void BeforeCheckoutScenario()
         {
+            LoadConfigValues();
+            CheckBrowser();
+        }
 
+        [AfterScenario]
+        public void AfterCheckoutScenario()
+        {
+            Driver.Quit();
         }
 
         [Given(@"I am on the Home page")]
         public void GivenIAmOnTheHomePage()
         {
-            ScenarioContext.Current.Pending();
+            HomePage homePage = new HomePage(Driver);
+            homePage.VisitHomePage();
         }
 
         [Given(@"I have added an item to the Cart")]
         public void GivenIHaveAddedAnItemToTheCart()
         {
-            ScenarioContext.Current.Pending();
+            HomePage homePage = new HomePage(Driver);
+            homePage.AddItemToCart();
         }
 
         [When(@"I click Proceed to checkout")]
         public void WhenIClickProceedToCheckout()
         {
-            ScenarioContext.Current.Pending();
+
         }
 
         [Then(@"I can view the items in my Shopping Cart")]

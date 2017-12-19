@@ -5,7 +5,6 @@
 
 @Checkout
 Scenario: Add Items to Cart
-	Given I am logged in
 	Given I am on the Home page
 	And I have added an item to the Cart 
 	When I click Proceed to checkout
