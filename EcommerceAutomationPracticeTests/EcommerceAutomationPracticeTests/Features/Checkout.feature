@@ -6,6 +6,13 @@
 @Checkout
 Scenario: Add Items to Cart
 	Given I am on the Home page
+	#And I hover over an item
+	When I click Add to cart 
+	Then an item is added to my cart
+
+@Checkout
+Scenario: View my Cart
+	Given I am on the
 	And I have added an item to the Cart 
 	When I click Proceed to checkout
 	Then I can view the items in my Shopping Cart

@@ -31,6 +31,34 @@ namespace EcommerceAutomationPracticeTests.StepDefinitions
             homePage.VisitHomePage();
         }
 
+        //[Given(@"I hover over an item")]
+        //public void GivenIHoverOverAnItem()
+        //{
+        //    HomePage homePage = new HomePage(Driver);
+        //    homePage.HoverOnItem();
+        //}
+
+        [When(@"I click Add to cart")]
+        public void WhenIClickAddToCart()
+        {
+            HomePage homePage = new HomePage(Driver);
+            homePage.AddItemToCart();
+        }
+
+        [Then(@"an item is added to my cart")]
+        public void ThenAnItemIsAddedToMyCart()
+        {
+            HomePage homePage = new HomePage(Driver);
+            homePage.ItemSuccessfullyAdded();
+        }
+
+        [Given(@"I am on the")]
+        public void GivenIAmOnThe()
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
         [Given(@"I have added an item to the Cart")]
         public void GivenIHaveAddedAnItemToTheCart()
         {
@@ -41,13 +69,15 @@ namespace EcommerceAutomationPracticeTests.StepDefinitions
         [When(@"I click Proceed to checkout")]
         public void WhenIClickProceedToCheckout()
         {
-
+            HomePage homePage = new HomePage(Driver);
+            homePage.ProceedToCheckout();
         }
 
         [Then(@"I can view the items in my Shopping Cart")]
         public void ThenICanViewTheItemsInMyShoppingCart()
         {
-            ScenarioContext.Current.Pending();
+            HomePage homePage = new HomePage(Driver);
+            homePage.ViewShoppingCart();
         }
 
         [Given(@"I am on the Shopping-Cart Summary page")]

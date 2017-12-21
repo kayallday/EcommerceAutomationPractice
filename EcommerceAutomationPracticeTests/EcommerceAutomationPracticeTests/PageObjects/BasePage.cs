@@ -157,13 +157,14 @@ FromSeconds(maxWaitTime));
             }
         }
 
+
         protected void WaitForAjax(IWebDriver driver, int timeoutSecs = 10, bool throwException = false)
         {
             for (var i = 0; i < timeoutSecs; i++)
             {
                 var ajaxIsComplete = (bool)(driver as IJavaScriptExecutor).ExecuteScript("return jQuery.active == 0");
                 if (ajaxIsComplete) return;
-                Thread.Sleep(1000);
+                Thread.Sleep(2500);
             }
             if (throwException)
             {
