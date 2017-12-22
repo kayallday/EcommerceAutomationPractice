@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using NUnit.Framework;
 
 namespace EcommerceAutomationPracticeTests.PageObjects
 {
     class HomePage : BasePage
     {
+        public bool? IsVisible { get; private set; }
+
         public HomePage(IWebDriver driver) : base(driver) { }
 
         internal void VisitLoginPage()
@@ -54,7 +57,16 @@ namespace EcommerceAutomationPracticeTests.PageObjects
         internal void ContinueShopping()
         {
             By ContinueShoppingButton = By.CssSelector("div #layer_cart .continue");
+            WaitUntilClickable(ContinueShoppingButton, WAIT_SECONDS);
+            Click(ContinueShoppingButton);
+        }
 
+        internal void CartNotVisible()
+        {
+            By CartLayer = By.CssSelector("div #layer_cart");
+            WaitUntilInvisible(CartLayer, WAIT_SECONDS);
+            Find(CartLayer);
+            Assert.False(IsDisplayed(CartLayer));
         }
 
         internal void ProceedToCheckout()
