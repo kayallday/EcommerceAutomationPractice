@@ -10,7 +10,7 @@ namespace EcommerceAutomationPracticeTests.PageObjects
 {
     public class BasePage
     {
-        protected const int WAIT_SECONDS = 20;
+        protected const int WAIT_SECONDS = 30;
 
         public IWebDriver Driver;
 
@@ -45,6 +45,13 @@ namespace EcommerceAutomationPracticeTests.PageObjects
         {
             element.SendKeys(message);
         }
+
+        protected void ScrollToView(IWebElement element)
+        {
+            var executor = (IJavaScriptExecutor)Driver;
+            executor.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }
+
 
         protected int HowManyElements(By locator)
         {

@@ -32,7 +32,11 @@ namespace EcommerceAutomationPracticeTests.PageObjects
 
         internal void AddItemToCart()
         {
-            By ListItemOnHomePage = By.ClassName("content_price");
+            //Scroll to put the item in view of the web browser
+            By ProductContainer = By.Id("homefeatured");
+            ScrollToView(Find(ProductContainer));
+            //Hover over the item to display the add to cart button
+            By ListItemOnHomePage = By.CssSelector("#homefeatured > li.ajax_block_product.col-xs-12.col-sm-4.col-md-3.first-in-line.first-item-of-tablet-line.first-item-of-mobile-line:first-child");
             Hover(Find(ListItemOnHomePage));
             WaitUntilDisplayed(ListItemOnHomePage, WAIT_SECONDS);
             By AddItemToCartButton = By.CssSelector("[data-id-product='1']");
@@ -40,18 +44,17 @@ namespace EcommerceAutomationPracticeTests.PageObjects
             Click(AddItemToCartButton);
         }
 
-        //internal void AddItemToCart()
-        //{ // must use CssSelector in this case because of many products on the same page, classes for buttons identical, and data-id is not an actual id
-        //    By AddItemToCartButton = By.CssSelector("[data-id-product='1']");
-        //    WaitUntilDisplayed(AddItemToCartButton, WAIT_SECONDS);
-        //    Click(AddItemToCartButton);
-        //}
-
         internal void ItemSuccessfullyAdded()
         {
             By CheckMarkIcon = By.ClassName("icon-ok");
             WaitUntilDisplayed(CheckMarkIcon, WAIT_SECONDS);
             Find(CheckMarkIcon);
+        }
+
+        internal void ContinueShopping()
+        {
+            By ContinueShoppingButton = By.CssSelector("div #layer_cart .continue");
+
         }
 
         internal void ProceedToCheckout()
