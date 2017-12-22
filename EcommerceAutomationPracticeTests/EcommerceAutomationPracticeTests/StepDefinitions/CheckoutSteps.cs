@@ -1,4 +1,5 @@
 ﻿using EcommerceAutomationPracticeTests.PageObjects;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ using TechTalk.SpecFlow;
 namespace EcommerceAutomationPracticeTests.StepDefinitions
 {
     [Binding]
+    [TestFixture]
+    [Parallelizable]
     class CheckoutSteps : BaseSteps
     {
         [BeforeScenario("Checkout")]
@@ -69,7 +72,8 @@ namespace EcommerceAutomationPracticeTests.StepDefinitions
         [Then(@"I no longer see my cart")]
         public void ThenINoLongerSeeMyCart()
         {
-            ScenarioContext.Current.Pending();
+            HomePage homePage = new HomePage(Driver);
+            homePage.CartNotVisible();
         }
 
         [Given(@"I am on the Shopping-Cart Summary page")]
