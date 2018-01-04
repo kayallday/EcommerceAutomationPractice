@@ -10,8 +10,6 @@ using TechTalk.SpecFlow;
 namespace EcommerceAutomationPracticeTests.StepDefinitions
 {
     [Binding]
-    [TestFixture]
-    [Parallelizable]
     class CheckoutSteps : BaseSteps
     {
         [BeforeScenario("Checkout")]
@@ -34,13 +32,6 @@ namespace EcommerceAutomationPracticeTests.StepDefinitions
             homePage.VisitHomePage();
         }
 
-        //[Given(@"I hover over an item")]
-        //public void GivenIHoverOverAnItem()
-        //{
-        //    HomePage homePage = new HomePage(Driver);
-        //    homePage.HoverOnItem();
-        //}
-
         [When(@"I click Add to cart")]
         public void WhenIClickAddToCart()
         {
@@ -55,31 +46,11 @@ namespace EcommerceAutomationPracticeTests.StepDefinitions
             homePage.ItemSuccessfullyAdded();
         }
 
-        [Given(@"I have added an item to the Cart")]
-        public void GivenIHaveAddedAnItemToTheCart()
-        {
-            HomePage homePage = new HomePage(Driver);
-            homePage.AddItemToCart();
-        }
-
-        [When(@"I click Continue Shopping")]
-        public void WhenIClickContinueShopping()
-        {
-            HomePage homePage = new HomePage(Driver);
-            homePage.ContinueShopping();
-        }
-        
-        [Then(@"I no longer see my cart")]
-        public void ThenINoLongerSeeMyCart()
-        {
-            HomePage homePage = new HomePage(Driver);
-            homePage.CartNotVisible();
-        }
-
         [Given(@"I am on the Shopping-Cart Summary page")]
-        public void GivenIAmOnTheShopping_CartSummaryPage()
+        public void GivenIAmOnTheShoppingCartSummaryPage()
         {
-            ScenarioContext.Current.Pending();
+            HomePage homePage = new HomePage(Driver);
+            homePage.VisitShoppingCartPage
         }
 
         [Given(@"I have items in my cart")]

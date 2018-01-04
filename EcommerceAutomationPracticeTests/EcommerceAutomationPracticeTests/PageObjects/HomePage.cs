@@ -54,21 +54,6 @@ namespace EcommerceAutomationPracticeTests.PageObjects
             Find(CheckMarkIcon);
         }
 
-        internal void ContinueShopping()
-        {
-            By ContinueShoppingButton = By.CssSelector("div #layer_cart .continue");
-            WaitUntilClickable(ContinueShoppingButton, WAIT_SECONDS);
-            Click(ContinueShoppingButton);
-        }
-
-        internal void CartNotVisible()
-        {
-            By CartLayer = By.CssSelector("div #layer_cart");
-            WaitUntilInvisible(CartLayer, WAIT_SECONDS);
-            Find(CartLayer);
-            Assert.False(IsDisplayed(CartLayer));
-        }
-
         internal void ProceedToCheckout()
         {
             By ProceedToCheckoutButton = By.CssSelector("[href='http://automationpractice.com/index.php?controller=order']");
