@@ -47,6 +47,11 @@ namespace EcommerceAutomationPracticeTests.PageObjects
             Click(AddItemToCartButton);
         }
 
+        internal void VisitShoppingCartPage()
+        {
+            throw new NotImplementedException();
+        }
+
         internal void ItemSuccessfullyAdded()
         {
             By CheckMarkIcon = By.ClassName("icon-ok");

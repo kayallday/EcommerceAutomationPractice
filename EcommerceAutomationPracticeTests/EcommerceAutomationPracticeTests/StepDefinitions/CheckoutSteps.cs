@@ -50,7 +50,7 @@ namespace EcommerceAutomationPracticeTests.StepDefinitions
         public void GivenIAmOnTheShoppingCartSummaryPage()
         {
             HomePage homePage = new HomePage(Driver);
-            homePage.VisitShoppingCartPage
+            homePage.VisitShoppingCartPage();
         }
 
         [Given(@"I have items in my cart")]
